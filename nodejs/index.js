@@ -11,6 +11,9 @@ const dbConfig = {
 const connection = mysql.createConnection(dbConfig);
 const names = ['Wesley', 'Lucas', 'Luis', 'Ana', 'Pamela', 'Pedro'];
 
+const sql = `CREATE TABLE IF NOT EXISTS people(id int not null auto_increment, name varchar(255), primary key (id));`
+connection.query(sql);
+
 const app = express();
 app.get('/', (req, res) => {
   const name = names[randomInt(names.length)];

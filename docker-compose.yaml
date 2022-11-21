@@ -6,8 +6,6 @@ services:
     entrypoint: wait-for db:3306 -t 40 -- ./start.sh
     volumes:
       - ./nodejs/:/app
-    # ports:
-    #   - 3000:3000
     depends_on:
       - db
   db:
